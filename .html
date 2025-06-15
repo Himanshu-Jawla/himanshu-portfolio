@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Himanshu's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+   
+    body {
+      margin: 0;
+      background: url('https://wallpaperaccess.com/full/2559093.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'VT323', monospace;
+      color: black;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur826.cur'), auto;
+      overflow: hidden;
+   
+    }#boot {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  font-size: 24px;
+}
+
+#loginScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(#3a6ea5, #ffffff);
+  z-index: 9998;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#loginScreen button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.desktop-icons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 1;
+}
+
+.icon {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px black;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to top, #000080, #0000cd);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: white;
+  font-size: 16px;
+  z-index: 2;
+}
+
+.start-button {
+  background: linear-gradient(to bottom, #3ad63a, #2b8d2b);
+  color: white;
+  border: 2px outset white;
+  padding: 4px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.start-menu {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  background: #f0f0f0;
+  border: 2px outset #fff;
+  width: 200px;
+  z-index: 3;
+}
+
+.start-menu-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.start-menu-item:hover {
+  background: #c0c0c0;
+}
+
+.popup {
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  background: #fffacd;
+  padding: 10px;
+  border: 2px solid #000;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.window {
+  position: absolute;
+  background: #e0e0e0;
+  border: 2px solid #000080;
+  width: 600px;
+  padding: 0;
+  box-shadow: 4px 4px #000;
+  resize: both;
+  overflow: auto;
+  z-index: 5;
+}
+
+.title-bar {
+  background: linear-gradient(to right, #000080, #0000cd);
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-bar span {
+  display: flex;
+  gap: 8px;
+}
+
+.section {
+  padding: 16px;
+}
+
+.screen-flare {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 80%);
+  border-radius: 50px;
+  mix-blend-mode: screen;
+}
+
+#weatherWidget {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px 12px;
+  border: 2px inset #ccc;
+  font-size: 14px;
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  width: 160px;
+  text-align: center;
+  z-index: 3;
+  font-family: 'VT323', monospace;
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+}
+
+.icon img:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .window {
+    width: 90%;
+    left: 5% !important;
+    right: 5% !important;
+  }
+
+  #weatherWidget {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="screen-flare"></div>
+  <div class="desktop-icons">
+    <div class="icon">
+      <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-apps/256/accessories-text-editor-icon.png" alt="Notepad Icon" />
+      <div>Notepad</div>
+    </div>
+    <div class="icon">
+      <img src="https://icons.iconarchive.com/icons/google/chrome/256/Google-Chrome-icon.png" alt="Browser Icon" />
+      <div>Browser</div>
+    </div>
+    <div class="icon">
+      <img src="https://static.wikia.nocookie.net/gtawiki/images/1/15/GTASA_Boxart.png" alt="GTA SA Icon" />
+      <div>San Andreas</div>
+    </div>
+    <div class="icon">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/e2/NFS_Most_Wanted_cover.jpg" alt="Most Wanted Icon" />
+      <div>Most Wanted</div>
+    </div>
+  </div>
+  <div id="weatherWidget">
+    <strong>Greater Noida</strong><br />
+    <span id="weatherDesc">Loading...</span><br />
+    <span id="temperature">--°C</span>
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const apiKey = localStorage.getItem('weather_api_key') || 'INVALID';
+      const city = 'Greater Noida';if (apiKey === 'INVALID') {
+    document.getElementById('weatherDesc').innerText = 'API key missing';
+    return;
+  }
+
+  const url = https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey};
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) throw new Error('Weather API Error');
+      return response.json();
+    })
+    .then(data => {
+      const weather = data.weather[0].description;
+      const temp = Math.round(data.main.temp);
+      document.getElementById('weatherDesc').innerText = weather.charAt(0).toUpperCase() + weather.slice(1);
+      document.getElementById('temperature').innerText = ${temp}°C;
+    })
+    .catch(err => {
+      document.getElementById('weatherDesc').innerText = 'Error loading weather';
+      console.error('Weather API Error:', err);
+    });
+});
+
+  </script>
+</body>
+</html>
