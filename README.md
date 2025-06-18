@@ -1,5 +1,4 @@
 # himanshu-portfolio
-My Portfolio 
 This isn’t your average developer portfolio. This is a full operating system clone (yes, like actual XP) made from scratch in React. It’s my way of saying:
 
 “Hey, I’m a developer. But I’m also weird, creative, nostalgic, and lowkey cracked.”
@@ -20,7 +19,7 @@ Fully working taskbar and Start menu
 
 XP sound effects
 
-Easter eggs 👀
+Easter eggs 
 
 Mobile-friendly layout
 
@@ -54,18 +53,14 @@ himanshu-portfolio/
  Run Locally
 
 
-🔮 Why I Made This
+ Why I Made This
 I didn’t want a cookie-cutter “Hi I’m Himanshu and I build stuff with React” kind of site.
 I wanted something people actually remember.
 
 So I built something fun. Something nerdy. Something that shows I can code and that I have a personality. This site is for the weirdos who grew up on LimeWire, Winamp, and GTA Vice City.
 
  Personality Inside the Code
- Funny, mysterious, introverted dev vibes
-
- Inspired by gaming, hacking, XP nostalgia
-
- Sound FX and fake apps = chaos + creativity
+ Inspired by gaming, XP nostalgia
 
  Fully modular, scalable React app
 
