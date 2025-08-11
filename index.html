@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Himanshu Jawla — Web Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Himanshu Jawla modern web developer building delightful, responsive, and accessible web experiences with clean design and smooth animations."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Outfit:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header" role="banner">
+      <div class="container nav-wrap">
+        <a class="logo" href="#hero" aria-label="Go to hero">
+          <span class="logo-badge" aria-hidden="true">HJ</span>
+          <span>Himanshu Jawla</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            🌙
+          </button>
+          <button
+            id="menu-toggle"
+            class="menu-toggle"
+            type="button"
+            aria-controls="mobile-nav"
+            aria-expanded="false"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-nav"
+        class="mobile-nav"
+        role="dialog"
+        aria-modal="false"
+        aria-label="Mobile navigation"
+      >
+        <ul class="container">
+          <li><a href="#about" data-close-menu="true">About</a></li>
+          <li><a href="#skills" data-close-menu="true">Skills</a></li>
+          <li><a href="#projects" data-close-menu="true">Projects</a></li>
+          <li><a href="#blog" data-close-menu="true">Blog</a></li>
+          <li><a href="#contact" data-close-menu="true">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="content" tabindex="-1">
+      <!-- Hero -->
+      <section id="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal" style="transition-delay: 60ms">
+            <div class="hero-kicker">Frontend Developer | Learning Backend</div>
+            <h1 id="hero-title" class="hero-title">
+              Hi, I’m <span class="text-gradient">Himanshu</span>-building
+              delightful web experiences.
+            </h1>
+            <p class="hero-sub">
+              I love clean design, smooth micro‑interactions, and functional
+              code that ships. This site showcases projects, thoughts, and a
+              craft for details.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#" aria-label="Open resume"
+                >Resume</a
+              >
+              <a class="btn btn-secondary" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <div
+            class="visual-card reveal"
+            style="transition-delay: 120ms"
+            id="visual-card"
+            aria-hidden="true"
+          >
+            <div class="gloss"></div>
+            <div class="blob"></div>
+            <div class="floating" id="floating-icons">
+              <span class="badge" data-parallax="1.2">🔶 <small>HTML</small></span>
+              <span class="badge" data-parallax="0.9">🎨 <small>CSS</small></span>
+              <span class="badge" data-parallax="1.4">⚡ <small>JS</small></span>
+              <span class="badge" data-parallax="1.1">⚛️ <small>React</small></span>
+              <span class="badge" data-parallax="1.0">🟢 <small>Node</small></span>
+              <span class="badge" data-parallax="0.8">🔧 <small>Git</small></span>
+            </div>
+
+            <!-- Optional Figma embed (disabled by default).
+                 To enable, remove this comment wrapper and the closing comment below.
+                 Exact embed target (Community file):
+                 https://www.figma.com/community/file/1530578704157510341
+
+            <iframe
+              title="Figma hero embed"
+              loading="lazy"
+              class="figma-embed"
+              src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/community/file/1530578704157510341">
+            </iframe>
+
+            -->
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>About Me</h2>
+            <p>
+              I’m a self‑motivated developer focused on responsive, accessible
+              interfaces. I care deeply about clean design systems, smooth
+              animations, and shipping functional, maintainable code.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Skills</h2>
+            <p>
+              Tools and technologies I use to deliver robust, delightful web
+              experiences.
+            </p>
+          </div>
+          <div class="skills-grid">
+            <div class="skill reveal" style="transition-delay: 40ms">HTML</div>
+            <div class="skill reveal" style="transition-delay: 80ms">CSS</div>
+            <div class="skill reveal" style="transition-delay: 120ms">
+              JavaScript
+            </div>
+            <div class="skill reveal" style="transition-delay: 160ms">React</div>
+            <div class="skill reveal" style="transition-delay: 200ms">
+              Node.js
+            </div>
+            <div class="skill reveal" style="transition-delay: 240ms">
+              Git &amp; GitHub
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Projects</h2>
+            <p>
+              A curated selection of work and experiments.
+            </p>
+          </div>
+          <div class="cards">
+            <!-- Project 1 -->
+            <article class="card reveal" style="transition-delay: 40ms">
+              <div class="card-figure" aria-hidden="true">
+                <svg
+                  viewBox="0 0 600 338"
+                  xmlns="ttp://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Project thumbnail"
+                >
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#0ea5ff" />
+                      <stop offset="50%" stop-color="#4f46e5" />
+                      <stop offset="100%" stop-color="#8b5cf6" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="600" height="338" rx="18" fill="url(#g1)" opacity="0.22" />
+                  <g fill="#ffffff" opacity="0.8">
+                    <rect x="60" y="70" width="320" height="16" rx="8" />
+                    <rect x="60" y="100" width="220" height="14" rx="7" opacity="0.8" />
+                    <rect x="60" y="130" width="180" height="14" rx="7" opacity="0.6" />
+                  </g>
+                </svg>
+              </div>
+              <div class="card-body">
+                <h3>Flappy-Kingfisher</h3>
+                <p>
+                  A game built with semantic HTML, modern CSS, and vanilla
+                  JavaScript. Focused on performance and accessibility.
+                </p>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="https://flappy-kingfisher.vercel.app/" aria-label="Open live demo"
+                  >Live Demo</a
+                >
+                <a class="btn btn-secondary" href="https://github.com/Himanshu-Jawla/flappy-kingfisher" aria-label="Open GitHub repository"
+                  >GitHub</a
+                >
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="card reveal" style="transition-delay: 80ms">
+              <div class="card-figure" aria-hidden="true">
+                <svg
+                  viewBox="0 0 600 338"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Project thumbnail"
+                >
+                  <defs>
+                    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#22d3ee" />
+                      <stop offset="50%" stop-color="#0ea5ff" />
+                      <stop offset="100%" stop-color="#4f46e5" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="600" height="338" rx="18" fill="url(#g2)" opacity="0.22" />
+                  <g fill="#ffffff" opacity="0.8">
+                    <rect x="60" y="70" width="180" height="16" rx="8" />
+                    <rect x="60" y="100" width="280" height="14" rx="7" opacity="0.8" />
+                    <rect x="60" y="130" width="240" height="14" rx="7" opacity="0.6" />
+                  </g>
+                </svg>
+              </div>
+              <div class="card-body">
+                <h3>Todo App</h3>
+                <p>
+                  A feature‑rich todo list with local storage, keyboard shortcuts, and
+                  thoughtful micro‑interactions.
+                </p>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="#" aria-label="Open live demo"
+                  >Live Demo</a
+                >
+                <a class="btn btn-secondary" href="#" aria-label="Open GitHub repository"
+                  >GitHub</a
+                >
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="card reveal" style="transition-delay: 120ms">
+              <div class="card-figure" aria-hidden="true">
+                <svg
+                  viewBox="0 0 600 338"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Project thumbnail"
+                >
+                  <defs>
+                    <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#4f46e5" />
+                      <stop offset="50%" stop-color="#8b5cf6" />
+                      <stop offset="100%" stop-color="#22d3ee" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="600" height="338" rx="18" fill="url(#g3)" opacity="0.22" />
+                  <g fill="#ffffff" opacity="0.8">
+                    <rect x="60" y="70" width="260" height="16" rx="8" />
+                    <rect x="60" y="100" width="230" height="14" rx="7" opacity="0.8" />
+                    <rect x="60" y="130" width="160" height="14" rx="7" opacity="0.6" />
+                  </g>
+                </svg>
+              </div>
+              <div class="card-body">
+                <h3>Blog Article Series</h3>
+                <p>
+                  Writing about front‑end architecture, animation techniques, and
+                  JavaScript tips learned along the way.
+                </p>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="#" aria-label="Open live demo"
+                  >Live Demo</a
+                >
+                <a class="btn btn-secondary" href="#" aria-label="Open GitHub repository"
+                  >GitHub</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Blogs</h2>
+            <p>
+              Short reads on building beautiful, functional interfaces with a performance
+              mindset.
+            </p>
+          </div>
+          <div class="blog-grid">
+            <article class="blog reveal" style="transition-delay: 40ms">
+              <h3>How I Built My Portfolio</h3>
+              <p class="muted">
+                Behind the scenes of designing, architecting, and polishing this site.
+              </p>
+            </article>
+            <article class="blog reveal" style="transition-delay: 80ms">
+              <h3>Top 5 JavaScript Tips</h3>
+              <p class="muted">
+                Practical patterns and lesser‑known tricks to keep your code clean.
+              </p></article>
+              <article class="blog reveal" style="transition-delay: 40ms">
+              <h3>Why Government Website Sucks</h3>
+              <p class="muted">
+                Behind the scenes of designing, architecting, and polishing this site.
+              </p>
+            
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Contact</h2>
+            <p>
+              Have a project or an idea? Let’s build something thoughtful and delightful
+              together.
+            </p>
+          </div>
+
+          <div class="contact-card reveal" style="transition-delay: 80ms">
+            <form id="contact-form" novalidate>
+              <div class="row">
+                <div>
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+              <div style="margin-top:12px">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me a bit about your project..."
+                  required
+                ></textarea>
+              </div>
+              <div class="submit-row">
+                <button id="submit" class="btn btn-primary" type="submit" disabled>
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      <div class="container footer-grid">
+        <div>© 2025 Himanshu Jawla</div>
+        <div class="socials" aria-label="Social links">
+          <a href="https://github.com/Himanshu-Jawla" title="GitHub" aria-label="GitHub">🐱</a>
+          <a href="www.linkedin.com/in/himanshu-jawla1" title="LinkedIn" aria-label="LinkedIn">💼</a>
+          <a href="#" title="X" aria-label="X">✖️</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      Message sent! I will get back to you shortly.
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
