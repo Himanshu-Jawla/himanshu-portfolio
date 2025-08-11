@@ -4,9 +4,11 @@ This is my personal portfolio website, showcasing my skills, projects, and conta
 
 
 **Purpose**
+--
 The site serves as a centralized platform to present my projects with live demos and code repositories, outline my resume, and provide easy contact options for potential recruiters or collaborators.
 
-Tech Stack
+**Tech Stack**
+--
 HTML5, CSS3, JavaScript (Vanilla)
 
 Responsive design principles
@@ -15,7 +17,8 @@ Smooth scrolling and basic animations
 
 GitHub Pages (or your chosen deployment method)
 
-Features
+**Features**
+--
 Hero section with name, tagline, and resume download button
 
 Projects section with screenshots, live demo links, and GitHub links
@@ -27,6 +30,7 @@ Sticky, right-aligned navigation bar with smooth scrolling
 Responsive layout for desktop and mobile
 
 Installation / Usage
+
 Clone this repo:
 
 bash
