@@ -19,43 +19,39 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <header class="header" role="banner">
-      <div class="container nav-wrap">
-        <a class="logo" href="#hero" aria-label="Go to hero">
-          <span class="logo-badge" aria-hidden="true">HJ</span>
-          <span>Himanshu Jawla</span>
-        </a>
+    
 
-        <nav aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#blog">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
+<header class="header">
+  <div class="container nav-wrap">
+    <a href="assets/portpic.jpg" class="logo">
+      <span class="logo-badge" aria-hidden="true"></span>
+      <span></span>
+    </a>
 
-        <div class="actions">
-          <button
-            id="theme-toggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-          >
-            🌙
-          </button>
-          <button
-            id="menu-toggle"
-            class="menu-toggle"
-            type="button"
-            aria-controls="mobile-nav"
-            aria-expanded="false"
-          >
-            Menu
-          </button>
-        </div>
-      </div>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer (already in your codebase) -->
+<div id="mobile-nav" class="mobile-nav" role="dialog" aria-modal="false">
+  <ul>
+    <li><a href="#about" data-close-menu="true">About</a></li>
+    <li><a href="#skills" data-close-menu="true">Skills</a></li>
+    <li><a href="#projects" data-close-menu="true">Projects</a></li>
+    <li><a href="#contact" data-close-menu="true">Contact</a></li>
+  </ul>
+</div>
+
 
       <div
         id="mobile-nav"
@@ -73,7 +69,7 @@
         </ul>
       </div>
     </header>
-
+<br>
     <main id="content" tabindex="-1">
       <!-- Hero -->
       <section id="hero" aria-labelledby="hero-title">
@@ -81,22 +77,18 @@
           <div class="hero-copy reveal" style="transition-delay: 60ms">
             <div class="hero-kicker">Frontend Developer | Learning Backend</div>
             <h1 id="hero-title" class="hero-title">
-              Hi, I’m <span class="text-gradient">Himanshu</span>-building
-              delightful web experiences.
+              Hi, I’m <span class="text-gradient">Himanshu Jawla</span>
             </h1>
             <p class="hero-sub">
-              I love clean design, smooth micro‑interactions, and functional
-              code that ships. This site showcases projects, thoughts, and a
-              craft for details.
+              
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#" aria-label="Open resume"
+              <a class="btn btn-primary" href="assets/Resume-Himanshu-Jawla.docx" aria-label="Open resume"
                 >Resume</a
               >
               <a class="btn btn-secondary" href="#contact">Contact</a>
             </div>
           </div>
-
           <div
             class="visual-card reveal"
             style="transition-delay: 120ms"
@@ -401,7 +393,7 @@
     <!-- Footer -->
     <footer role="contentinfo">
       <div class="container footer-grid">
-        <div>© 2025 Himanshu Jawla</div>
+        <div>© 2025 Himanshu Jawla. All rights reserved.</div>
         <div class="socials" aria-label="Social links">
           <a href="https://github.com/Himanshu-Jawla" title="GitHub" aria-label="GitHub">🐱</a>
           <a href="www.linkedin.com/in/himanshu-jawla1" title="LinkedIn" aria-label="LinkedIn">💼</a>

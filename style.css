@@ -738,3 +738,42 @@ h3 {
   font-family: var(--font-display);
   letter-spacing: -0.01em;
 }
+
+/* NAV: right-align nav on larger screens */
+.nav-wrap {
+  grid-template-columns: auto 1fr auto; /* logo | spacer | nav/actions */
+}
+
+nav {
+  justify-self: end; /* push nav to right */
+}
+
+/* Keep actions (theme toggle + menu) on the far right */
+.actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Optional: ensure order inside actions = theme toggle then menu */
+.actions #theme-toggle { order: 1; }
+.actions #menu-toggle   { order: 2; }
+
+/* MOBILE: keep header clean, put controls on right, right-align drawer items */
+@media (max-width: 900px) {
+  /* nav stays hidden (as you already had), menu button shows */
+  /* Align mobile drawer content to the right for consistency */
+  .mobile-nav ul {
+    justify-items: end;     /* grid items align to the right edge */
+    text-align: right;      /* link text aligns right */
+  }
+
+  .mobile-nav a {
+    width: max-content;     /* fit links snug to the right, not full-width */
+  }
+
+  /* Tighten header spacing a bit on small screens for better rhythm */
+  header.header .nav-wrap { gap: 10px; }
+  .theme-toggle, .menu-toggle { height: 40px; }
+}
