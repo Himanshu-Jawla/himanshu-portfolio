@@ -29,14 +29,7 @@ Sticky, right-aligned navigation bar with smooth scrolling
 
 Responsive layout for desktop and mobile
 
-Installation / Usage
 
-Clone this repo:
-
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/portfolio.git
 Open index.html in any modern browser.
 
 No additional setup or dependencies required.
