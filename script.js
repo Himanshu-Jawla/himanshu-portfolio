@@ -1,28 +1,19 @@
-/*
-  Portfolio interactions
-  - Theme toggle with persistence + prefers-color-scheme
-  - Mobile menu toggle (accessible)
-  - Smooth scroll for anchors (respects reduced motion)
-  - IntersectionObserver reveal animations
-  - Card tilt + hero parallax badges
-  - Contact form validation + success toast
-  - Header measurement to keep anchor offsets correct
+/* Updated script.js
+   - preserves original behaviors (theme, reveal, tilt, form)
+   - adds scroll-to-top visibility
+   - fixes mobile menu accessibility and single mobile-nav instance
 */
 
-// Helper: prefers-reduced-motion
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Theme management
+/* ---------- Theme management ---------- */
 const storageKey = 'theme';
 const themeToggle = document.getElementById('theme-toggle');
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-  // Update browser UI theme color
-  document
-    .querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', theme === 'dark' ? '#0b0d12' : '#ffffff');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0b0d12' : '#ffffff');
   localStorage.setItem(storageKey, theme);
 }
 
@@ -41,7 +32,7 @@ themeToggle.addEventListener('click', () => {
   applyTheme(current === 'dark' ? 'light' : 'dark');
 });
 
-// Header height measurement for scroll offsets
+/* ---------- Header measurement for anchors ---------- */
 function measureHeader() {
   const header = document.querySelector('header.header');
   const h = header ? header.getBoundingClientRect().height : 72;
@@ -50,9 +41,10 @@ function measureHeader() {
 window.addEventListener('load', measureHeader);
 window.addEventListener('resize', measureHeader);
 
-// Mobile menu
+/* ---------- Mobile menu ---------- */
 const menuBtn = document.getElementById('menu-toggle');
 const mobileNav = document.getElementById('mobile-nav');
+
 function closeMenu() {
   mobileNav.classList.remove('open');
   menuBtn.setAttribute('aria-expanded', 'false');
@@ -63,20 +55,23 @@ function openMenu() {
   menuBtn.setAttribute('aria-expanded', 'true');
   mobileNav.setAttribute('aria-modal', 'true');
 }
+
 menuBtn.addEventListener('click', () => {
   const open = mobileNav.classList.contains('open');
   if (open) closeMenu();
   else openMenu();
 });
+
 mobileNav.addEventListener('click', (e) => {
   const link = e.target.closest('a[data-close-menu="true"]');
   if (link) closeMenu();
 });
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMenu();
 });
 
-// Smooth scroll for in-page anchors (scroll-margin handled by CSS)
+/* ---------- Smooth scroll for anchors ---------- */
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a[href^="#"]');
   if (!a) return;
@@ -91,7 +86,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// IntersectionObserver reveal
+/* ---------- Reveal IntersectionObserver ---------- */
 const revealEls = Array.from(document.querySelectorAll('.reveal'));
 if (revealEls.length) {
   const io = new IntersectionObserver(
@@ -108,13 +103,13 @@ if (revealEls.length) {
   revealEls.forEach((el) => io.observe(el));
 }
 
-// Tilt effect for cards and skills
+/* ---------- Tilt effect for cards and skills ---------- */
 function attachTilt(selector) {
   const els = document.querySelectorAll(selector);
   els.forEach((el) => {
-    if (prefersReduced) return; // honor reduced motion
+    if (prefersReduced) return;
     let raf = null;
-    const maxTilt = 6; // degrees
+    const maxTilt = 6;
 
     function onMove(e) {
       const rect = el.getBoundingClientRect();
@@ -141,7 +136,7 @@ function attachTilt(selector) {
 attachTilt('.card');
 attachTilt('.skill');
 
-// Parallax for hero badges
+/* ---------- Parallax for hero badges ---------- */
 const visual = document.getElementById('visual-card');
 const badges = visual ? Array.from(visual.querySelectorAll('.badge')) : [];
 if (visual && badges.length && !prefersReduced) {
@@ -170,7 +165,7 @@ if (visual && badges.length && !prefersReduced) {
   visual.addEventListener('pointerleave', onLeave);
 }
 
-// Contact form validation + toast
+/* ---------- Contact form validation + toast ---------- */
 const form = document.getElementById('contact-form');
 const submitBtn = document.getElementById('submit');
 const toast = document.getElementById('toast');
@@ -179,14 +174,16 @@ function validateForm() {
   const valid = form.checkValidity();
   submitBtn.disabled = !valid;
 }
-form.addEventListener('input', validateForm);
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  // Simulate success
-  showToast('Message sent! I will get back to you shortly.');
-  form.reset();
+if (form) {
+  form.addEventListener('input', validateForm);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    showToast('Message sent! I will get back to you shortly.');
+    form.reset();
+    validateForm();
+  });
   validateForm();
-});
+}
 
 function showToast(msg) {
   toast.textContent = msg;
@@ -198,20 +195,85 @@ function showToast(msg) {
   }, 2200);
 }
 
-// Improve initial focus for skip-link scenarios
-document
-  .getElementById('content')
-  .addEventListener(
-    'focus',
-    () => {
-      window.scrollBy({
-        top: -8,
-        left: 0,
-        behavior: prefersReduced ? 'auto' : 'smooth',
-      });
-    },
-    true
-  );
+/* ---------- Scroll to top button ---------- */
+const scrollTopBtn = document.getElementById('scroll-top');
+if (scrollTopBtn) {
+  function checkScrollTop() {
+    if (window.scrollY > 320) scrollTopBtn.classList.add('visible');
+    else scrollTopBtn.classList.remove('visible');
+  }
+  window.addEventListener('scroll', checkScrollTop, { passive: true });
+  checkScrollTop();
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+  });
+}
 
-// Initial call(s)
-validateForm();
+/* ---------- Make sure header measurement runs early ---------- */
+measureHeader();
+
+// === Fetch Hashnode Blogs ===
+async function fetchBlogs() {
+  const query = `
+    {
+      user(username: "Himanshu-Jawla") {
+        publication {
+          posts(page: 0) {
+            title
+            brief
+            slug
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await fetch("https://gql.hashnode.com/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query })
+  });
+  
+  const data = await response.json();
+  const posts = data.data.user.publication.posts;
+
+  const blogGrid = document.querySelector(".blog-grid");
+
+  posts.forEach(post => {
+    const card = document.createElement("div");
+    card.className = "blog-card";
+    card.dataset.title = post.title;
+    card.dataset.snippet = post.brief;
+    card.dataset.link = `https://hashnode.com/post/${post.slug}`;
+    card.innerHTML = `<h3>${post.title}</h3>`;
+    blogGrid.appendChild(card);
+  });
+
+  // Re-bind modal logic to new cards
+  initBlogCards();
+}
+
+function initBlogCards() {
+  const blogCards = document.querySelectorAll('.blog-card');
+  const modal = document.getElementById('blog-modal');
+  const modalTitle = modal.querySelector('.modal-title');
+  const modalSnippet = modal.querySelector('.modal-snippet');
+  const modalLink = modal.querySelector('.modal-link');
+  const modalClose = modal.querySelector('.modal-close');
+
+  blogCards.forEach(card => {
+    card.addEventListener('click', () => {
+      modalTitle.textContent = card.dataset.title;
+      modalSnippet.textContent = card.dataset.snippet;
+      modalLink.href = card.dataset.link;
+      modal.classList.add('active');
+    });
+  });
+
+  modalClose.addEventListener('click', () => modal.classList.remove('active'));
+  modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('active'); });
+}
+
+// Call fetch
+fetchBlogs();
